@@ -39,3 +39,5 @@ define( 'WOOCOMMERCE_BOOKINGS_VERSION', '1.0.0' );
 include(plugin_dir_path(__FILE__) . 'inc/woocommerce-custom-bookings-scripts.php');
 /* PANEL SCRIPTS */
 include(plugin_dir_path(__FILE__) . 'inc/woocommerce-custom-bookings-panel.php');
+/* PRODUCT PUBLIC SCRIPTS  */
+include(plugin_dir_path(__FILE__) . 'inc/woocommerce-custom-bookings-product.php');

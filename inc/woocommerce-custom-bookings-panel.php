@@ -34,7 +34,7 @@ function bookings_tab_data() {
             'label'     => __( 'Precio por Adulto', 'woocommerce-custom-bookings' ) . ' (' . get_woocommerce_currency_symbol() . ')',
             'placeholder' => '0',
             'desc_tip'    => true,
-            'description' => __( "Este es el precio por adulto.", "woocommerce-custom-bookings" )
+            'description' => __( 'Agregue aquí el precio por adulto residente.', 'woocommerce-custom-bookings' )
         )
     );
 
@@ -45,7 +45,7 @@ function bookings_tab_data() {
             'label'     => __( 'Precio por Niño', 'woocommerce-custom-bookings' ) . ' (' . get_woocommerce_currency_symbol() . ')',
             'placeholder' => '0',
             'desc_tip'    => true,
-            'description' => __( "Este es el precio por adulto.", "woocommerce-custom-bookings" )
+            'description' => __( 'Agregue aquí el precio por niño residente.', 'woocommerce-custom-bookings' )
         )
     );
 ?>
@@ -59,7 +59,7 @@ function bookings_tab_data() {
             'label'     => __( 'Precio por Adulto', 'woocommerce-custom-bookings' ) . ' (' . get_woocommerce_currency_symbol() . ')',
             'placeholder' => '0',
             'desc_tip'    => true,
-            'description' => __( "Este es el precio por niño.", "woocommerce-custom-bookings" )
+            'description' => __( 'Agregue aquí el precio por adulto extranjero.', 'woocommerce-custom-bookings' )
         )
     );
 
@@ -70,7 +70,7 @@ function bookings_tab_data() {
             'label'     => __( 'Precio por Niño', 'woocommerce-custom-bookings' ) . ' (' . get_woocommerce_currency_symbol() . ')',
             'placeholder' => '0',
             'desc_tip'    => true,
-            'description' => __( "Este es el precio por niño.", "woocommerce-custom-bookings" )
+            'description' => __( 'Agregue aquí el precio por niño extranjero.', 'woocommerce-custom-bookings' )
         )
     );
 ?>
@@ -93,7 +93,7 @@ function bookings_tab_data() {
             'label'     => __( 'Precio de transporte', 'woocommerce-custom-bookings' ) . ' (' . get_woocommerce_currency_symbol() . ')',
             'placeholder' => '0',
             'desc_tip'    => true,
-            'description' => __( "Este es el precio por persona.", "woocommerce-custom-bookings" )
+            'description' => __( 'Agregue aquí el precio del transporte.', 'woocommerce-custom-bookings' )
         )
     );
 ?>
