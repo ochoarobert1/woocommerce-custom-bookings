@@ -22,4 +22,20 @@
  */
 
 
+// If this file is called directly, abort.
+if ( ! defined( 'WPINC' ) ) {
+    die;
+}
 
+/* --------------------------------------------------------------
+    DEFINE CURRENT PLUGIN VERSION
+-------------------------------------------------------------- */
+define( 'WOOCOMMERCE_BOOKINGS_VERSION', '1.0.0' );
+
+/* --------------------------------------------------------------
+    INCLUDE CLASS AND FUNCTIONS
+-------------------------------------------------------------- */
+/* ADMIN / PUBLIC SCRIPTS */
+include(plugin_dir_path(__FILE__) . 'inc/woocommerce-custom-bookings-scripts.php');
+/* PANEL SCRIPTS */
+include(plugin_dir_path(__FILE__) . 'inc/woocommerce-custom-bookings-panel.php');
