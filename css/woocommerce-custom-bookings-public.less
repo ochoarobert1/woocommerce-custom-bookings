@@ -1,0 +1,122 @@
+/* --------------------------------------------------------------
+/* MAIN LESS MIXINS AND FUNCTIONS - LESSHAT
+-------------------------------------------------------------- */
+@import 'less/_lesshat.less';
+
+/* --------------------------------------------------------------
+/* MAIN LESS MIXINS AND FUNCTIONS - LESSHAT
+-------------------------------------------------------------- */
+.custom-bookings-accordion {
+    margin-bottom: 2rem;
+
+    & .card {
+        box-shadow: none;
+        background: white;
+    }
+
+    & .card-header {
+        background: #009e90;
+        color: white;
+        border: 0;
+        border-radius: 0 !important;
+        padding: 0.5rem 1.2rem;
+
+        & .btn-link {
+            position: relative;
+            color: white;
+            padding: 0;
+            display: block;
+            width: 100%;
+            text-align: left;
+            text-decoration: none;
+
+            & span {
+                position: absolute;
+                right: 0px;
+                top: 5px;
+                .transition(all .3s ease-in-out);
+
+                &:before {
+                    transform: rotate(90deg);
+                    content: ' ';
+                    position: absolute;
+                    top: 0;
+                    left: 50%;
+                    height: 15px;
+                    width: 3px;
+                    background: white;
+                    .transition(all .3s ease-in-out);
+                }
+
+                &:after {
+                    transform: rotate(90deg);
+                    content: ' ';
+                    position: absolute;
+                    top: 0;
+                    left: 50%;
+                    height: 15px;
+                    width: 3px;
+                    background: white;
+                    .transition(all .3s ease-in-out);
+                }
+            }
+        }
+    }
+
+    & .collapsed {
+        & .btn-link {
+            & span {
+                &:before {
+                    transform: rotate(0deg);
+                }
+            }
+        }
+    }
+
+    & .card-body {
+        & select {
+            margin-top: .5rem;
+            width: 100%;
+            padding: 0.5rem;
+            border: 0;
+            background: #f3f3f3;
+        }
+
+        & .datepicker-special {
+            margin-top: .5rem;
+            width: 100%;
+            padding: 0.5rem;
+        }
+
+        & .datepicker-quantity {
+            font-size: 0.8rem;
+            font-style: italic;
+            font-weight: 600;
+            margin-left: .5rem;
+        }
+    }
+
+    & .custom-variations {
+        margin: 1rem 0 !important;
+        margin-top: 1.5rem !important;
+
+        & tr {
+            margin-bottom: 1rem;
+
+            & td {
+                & .special-input {
+                    width: 100%;
+                    margin-bottom: 1rem;
+                }
+
+                & label {
+                    & span {
+                        font-weight: 400;
+                        font-size: 0.8rem;
+                        letter-spacing: -0.5px;
+                    }
+                }
+            }
+        }
+    }
+}

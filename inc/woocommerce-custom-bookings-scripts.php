@@ -1,4 +1,4 @@
-<?php 
+<?php
 /* --------------------------------------------------------------
     ADMIN CUSTOM SCRIPTS
 -------------------------------------------------------------- */
@@ -27,6 +27,8 @@ function woocommerce_custom_bookings_public_scripts() {
     /* AIR-DATEPICKER */
     wp_enqueue_script('wooocommerce-airpicker-public', plugins_url('js/datepicker.min.js', plugin_dir_path(__FILE__)), array('jquery'));
     wp_enqueue_script('wooocommerce-airpicker-public-i18n', plugins_url('js/i18n/datepicker.es.js', plugin_dir_path(__FILE__)), array('jquery', 'wooocommerce-airpicker-public'));
+    /* MOMENT.JS */
+    wp_enqueue_script('wooocommerce-moment-public', 'https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js', array('jquery', 'wooocommerce-airpicker-public'));
     /* MAIN PUBLIC FUNCTIONS */
     wp_enqueue_script('woocommerce-custom-bookings-public-js', plugins_url('js/woocommerce-custom-bookings-public.js', plugin_dir_path(__FILE__)), array('jquery', 'wooocommerce-airpicker-public'));
     /* MAIN PUBLIC LOCALIZER */
