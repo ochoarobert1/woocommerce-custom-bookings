@@ -21,8 +21,10 @@
  * Domain Path:       /lang
  */
 
+/* --------------------------------------------------------------
+    ABORT FILE IF CALLED DIRECTLY
+-------------------------------------------------------------- */
 
-// If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {
     die;
 }
@@ -30,14 +32,28 @@ if ( ! defined( 'WPINC' ) ) {
 /* --------------------------------------------------------------
     DEFINE CURRENT PLUGIN VERSION
 -------------------------------------------------------------- */
+
 define( 'WOOCOMMERCE_BOOKINGS_VERSION', '1.0.0' );
+
+/* --------------------------------------------------------------
+    DEFINE CURRENT PLUGIN VERSION
+-------------------------------------------------------------- */
+
+function woocommerce_custom_bookings_load_textdomain() {
+    load_plugin_textdomain( 'woocommerce-custom-bookings', false, dirname( plugin_basename( __FILE__ ) ) . '/lang' );
+}
+
+add_action( 'plugins_loaded', 'woocommerce_custom_bookings_load_textdomain' );
 
 /* --------------------------------------------------------------
     INCLUDE CLASS AND FUNCTIONS
 -------------------------------------------------------------- */
+
 /* ADMIN / PUBLIC SCRIPTS */
 include(plugin_dir_path(__FILE__) . 'inc/woocommerce-custom-bookings-scripts.php');
 /* PANEL SCRIPTS */
 include(plugin_dir_path(__FILE__) . 'inc/woocommerce-custom-bookings-panel.php');
 /* PRODUCT PUBLIC SCRIPTS  */
 include(plugin_dir_path(__FILE__) . 'inc/woocommerce-custom-bookings-product.php');
+/* CART PUBLIC SCRIPTS  */
+include(plugin_dir_path(__FILE__) . 'inc/woocommerce-custom-bookings-cart.php');

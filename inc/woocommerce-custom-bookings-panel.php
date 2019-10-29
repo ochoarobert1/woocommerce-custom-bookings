@@ -1,9 +1,9 @@
-<?php 
+<?php
 /* --------------------------------------------------------------
     CUSTOM TAB OPTIONS
 -------------------------------------------------------------- */
 
-function custom_bookings_tab( $default_tabs ) {
+function woocommerce_custom_bookings_bookings_tab( $default_tabs ) {
     $default_tabs['bookings_tab'] = array(
         'label'   =>  __( 'Bookings', 'woocommerce-custom-bookings' ),
         'target'  =>  'bookings_tab_data',
@@ -13,18 +13,31 @@ function custom_bookings_tab( $default_tabs ) {
     return $default_tabs;
 }
 
-add_filter( 'woocommerce_product_data_tabs', 'custom_bookings_tab', 10, 1 );
+add_filter( 'woocommerce_product_data_tabs', 'woocommerce_custom_bookings_bookings_tab', 10, 1 );
 
 /* --------------------------------------------------------------
     CUSTOM TAB DATA
 -------------------------------------------------------------- */
 
-function bookings_tab_data() {
+function woocommerce_custom_bookings_tab_data() {
     global $woocommerce, $post;
 
-    echo '<div id="bookings_tab_data" class="panel woocommerce_options_panel hidden">'; 
+    echo '<div id="bookings_tab_data" class="panel woocommerce_options_panel hidden">';
     echo '<div class="options_group">';
 ?>
+<h2><?php _e( 'Transporte', 'woocommerce-custom-bookings' ); ?></h2>
+<?php
+    // Checkbox
+    woocommerce_wp_checkbox(
+        array(
+            'id'            => '_activate_booking',
+            'wrapper_class' => 'show_activate_booking',
+            'label'         => __('Producto Booking', 'woocommerce' ),
+            'description'   => __( 'Activar si este producto es tipo tour', 'woocommerce' )
+        )
+    );
+?>
+<hr>
 <h2><?php _e( 'Residente', 'woocommerce-custom-bookings' ); ?></h2>
 <?php
     // _resident_adults_price
@@ -113,13 +126,16 @@ function bookings_tab_data() {
     echo '</div>';
 }
 
-add_action( 'woocommerce_product_data_panels', 'bookings_tab_data' );
+add_action( 'woocommerce_product_data_panels', 'woocommerce_custom_bookings_tab_data' );
 
 /* --------------------------------------------------------------
     CUSTOM FIELDS SAVE
 -------------------------------------------------------------- */
 
-function custom_booking_fields_save( $post_id ){
+function woocommerce_custom_bookings_fields_save( $post_id ){
+    // Checkbox
+    $woocommerce_checkbox = isset( $_POST['_activate_booking'] ) ? 'yes' : 'no';
+    update_post_meta( $post_id, '_activate_booking', $woocommerce_checkbox );
     // Text Field
     $resident_adults_price = $_POST['_resident_adults_price'];
     update_post_meta( $post_id, '_resident_adults_price', esc_attr( $resident_adults_price ) );
@@ -143,4 +159,4 @@ function custom_booking_fields_save( $post_id ){
     update_post_meta( $post_id, '_date_selector', esc_attr( $date_selector ) );
 }
 
-add_action( 'woocommerce_process_product_meta', 'custom_booking_fields_save' );
+add_action( 'woocommerce_process_product_meta', 'woocommerce_custom_bookings_fields_save' );

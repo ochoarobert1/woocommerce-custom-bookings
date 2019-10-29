@@ -1,0 +1,216 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Project-Id-Version: Woocommerce Custom Bookings\n"
+"POT-Creation-Date: 2019-10-29 18:22-0400\n"
+"PO-Revision-Date: 2019-10-29 18:22-0400\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.1.1\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: woocommerce-custom-bookings.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: inc/woocommerce-custom-bookings-cart.php:70
+msgid "Adultos Residentes"
+msgstr ""
+
+#: inc/woocommerce-custom-bookings-cart.php:78
+msgid "Niños Residentes"
+msgstr ""
+
+#: inc/woocommerce-custom-bookings-cart.php:86
+msgid "Adultos Extranjeros"
+msgstr ""
+
+#: inc/woocommerce-custom-bookings-cart.php:94
+msgid "Niños Extranjeros"
+msgstr ""
+
+#: inc/woocommerce-custom-bookings-cart.php:102
+msgid "Selección de Días"
+msgstr ""
+
+#: inc/woocommerce-custom-bookings-cart.php:110
+#: inc/woocommerce-custom-bookings-cart.php:215
+#: inc/woocommerce-custom-bookings-product.php:124
+msgid "Servicio de Transporte"
+msgstr ""
+
+#: inc/woocommerce-custom-bookings-cart.php:112
+#: inc/woocommerce-custom-bookings-cart.php:216
+msgid "Incluido"
+msgstr ""
+
+#: inc/woocommerce-custom-bookings-cart.php:187
+#: inc/woocommerce-custom-bookings-cart.php:239
+msgid "Residentes Adultos"
+msgstr ""
+
+#: inc/woocommerce-custom-bookings-cart.php:194
+#: inc/woocommerce-custom-bookings-cart.php:246
+msgid "Residentes Niños"
+msgstr ""
+
+#: inc/woocommerce-custom-bookings-cart.php:201
+#: inc/woocommerce-custom-bookings-cart.php:253
+msgid "Extranjeros Adultos"
+msgstr ""
+
+#: inc/woocommerce-custom-bookings-cart.php:208
+#: inc/woocommerce-custom-bookings-cart.php:260
+msgid "Extranjeros Niños"
+msgstr ""
+
+#: inc/woocommerce-custom-bookings-cart.php:222
+#: inc/woocommerce-custom-bookings-cart.php:267
+msgid "Seleccion de Fecha"
+msgstr ""
+
+#: inc/woocommerce-custom-bookings-panel.php:8
+msgid "Bookings"
+msgstr ""
+
+#: inc/woocommerce-custom-bookings-panel.php:28
+#: inc/woocommerce-custom-bookings-panel.php:91
+#: inc/woocommerce-custom-bookings-product.php:114
+msgid "Transporte"
+msgstr ""
+
+#: inc/woocommerce-custom-bookings-panel.php:35
+msgid "Producto Booking"
+msgstr ""
+
+#: inc/woocommerce-custom-bookings-panel.php:36
+msgid "Activar si este producto es tipo tour"
+msgstr ""
+
+#: inc/woocommerce-custom-bookings-panel.php:41
+msgid "Residente"
+msgstr ""
+
+#: inc/woocommerce-custom-bookings-panel.php:47
+#: inc/woocommerce-custom-bookings-panel.php:72
+msgid "Precio por Adulto"
+msgstr ""
+
+#: inc/woocommerce-custom-bookings-panel.php:50
+msgid "Agregue aquí el precio por adulto residente."
+msgstr ""
+
+#: inc/woocommerce-custom-bookings-panel.php:58
+#: inc/woocommerce-custom-bookings-panel.php:83
+msgid "Precio por Niño"
+msgstr ""
+
+#: inc/woocommerce-custom-bookings-panel.php:61
+msgid "Agregue aquí el precio por niño residente."
+msgstr ""
+
+#: inc/woocommerce-custom-bookings-panel.php:66
+msgid "Extranjero"
+msgstr ""
+
+#: inc/woocommerce-custom-bookings-panel.php:75
+msgid "Agregue aquí el precio por adulto extranjero."
+msgstr ""
+
+#: inc/woocommerce-custom-bookings-panel.php:86
+msgid "Agregue aquí el precio por niño extranjero."
+msgstr ""
+
+#: inc/woocommerce-custom-bookings-panel.php:98
+msgid "Activar Transporte"
+msgstr ""
+
+#: inc/woocommerce-custom-bookings-panel.php:99
+msgid "Activar si este producto tendra servicio de transporte"
+msgstr ""
+
+#: inc/woocommerce-custom-bookings-panel.php:106
+msgid "Precio de transporte"
+msgstr ""
+
+#: inc/woocommerce-custom-bookings-panel.php:109
+msgid "Agregue aquí el precio del transporte."
+msgstr ""
+
+#: inc/woocommerce-custom-bookings-panel.php:114
+msgid "Fechas del Tour"
+msgstr ""
+
+#: inc/woocommerce-custom-bookings-panel.php:116
+msgid "Selección de Fechas"
+msgstr ""
+
+#: inc/woocommerce-custom-bookings-product.php:51
+msgid "Residentes"
+msgstr ""
+
+#: inc/woocommerce-custom-bookings-product.php:58
+#: inc/woocommerce-custom-bookings-product.php:89
+msgid "Seleccione la cantidad de Pasajeros"
+msgstr ""
+
+#: inc/woocommerce-custom-bookings-product.php:61
+#: inc/woocommerce-custom-bookings-product.php:92
+msgid "Adultos"
+msgstr ""
+
+#: inc/woocommerce-custom-bookings-product.php:64
+#: inc/woocommerce-custom-bookings-product.php:95
+msgid "Precio por adulto:"
+msgstr ""
+
+#: inc/woocommerce-custom-bookings-product.php:68
+#: inc/woocommerce-custom-bookings-product.php:99
+msgid "Niños"
+msgstr ""
+
+#: inc/woocommerce-custom-bookings-product.php:71
+#: inc/woocommerce-custom-bookings-product.php:102
+msgid "Precio por niño:"
+msgstr ""
+
+#: inc/woocommerce-custom-bookings-product.php:82
+msgid "Extranjeros"
+msgstr ""
+
+#: inc/woocommerce-custom-bookings-product.php:121
+msgid "Seleccione si desea el servicio de transporte"
+msgstr ""
+
+#: inc/woocommerce-custom-bookings-product.php:135
+msgid "Fechas Disponibles"
+msgstr ""
+
+#: inc/woocommerce-custom-bookings-product.php:142
+msgid "Seleccione la fecha que se ajuste a sus necesidades"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "Woocommerce Custom Bookings"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+#. Author URI of the plugin/theme
+msgid "http://www.robertochoa.com.ve/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "This is a simple Woocommerce Custom Bookings plugin."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Robert Ochoa"
+msgstr ""
