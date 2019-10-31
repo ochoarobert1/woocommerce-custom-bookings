@@ -1,4 +1,32 @@
 <?php
+function woocommerce_custom_bookings_before_price_html(  $price, $product ) {
+    $product_id = get_queried_object_id();
+    $booking_type =  get_post_meta($product_id, '_activate_booking', true);
+    if ($booking_type == 'yes') {
+        // Text
+        $text_regular_price = __("Desde: ");
+        $text_final_price = __("");
+
+        if ( $product->is_on_sale() ) {
+            $has_sale_text = array(
+                '<del>' => '<strong>' . $text_regular_price . '</strong> <del>',
+                '<ins>' => $text_final_price.'<ins>'
+            );
+            $return_string = str_replace(
+                array_keys( $has_sale_text ),
+                array_values( $has_sale_text ),
+                $price
+            );
+
+            return $return_string;
+        }
+        return $text_regular_price . $price;
+    } else {
+        return $price;
+    }
+}
+add_filter( 'woocommerce_get_price_html', 'woocommerce_custom_bookings_before_price_html', 10, 2);
+
 /* --------------------------------------------------------------
     REMOVE QUANTITY FIELD IN SINGLE PRODUCT
 -------------------------------------------------------------- */
@@ -46,10 +74,8 @@ function woocommerce_custom_booking_product_fields() {
 <div class="accordion custom-bookings-accordion" id="bookingAccordion">
     <div class="card">
         <div class="card-header" id="headingOne">
-            <h2 class="mb-0 collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                <button class="btn btn-link" type="button">
-                    <?php echo $i; ?>.- <?php _e('Residentes', 'woocommerce-custom-bookings'); ?> <span></span>
-                </button>
+            <h2 class="collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                <?php echo $i; ?>.- <?php _e('Residentes', 'woocommerce-custom-bookings'); ?> <span></span>
             </h2>
         </div>
         <?php $i++; ?>
@@ -77,10 +103,8 @@ function woocommerce_custom_booking_product_fields() {
     </div>
     <div class="card">
         <div class="card-header" id="headingTwo">
-            <h2 class="mb-0 collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                <button class="btn btn-link collapsed" type="button">
-                    <?php echo $i; ?>.- <?php _e('Extranjeros', 'woocommerce-custom-bookings'); ?> <span></span>
-                </button>
+            <h2 class="collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                <?php echo $i; ?>.- <?php _e('Extranjeros', 'woocommerce-custom-bookings'); ?> <span></span>
             </h2>
         </div>
         <?php $i++; ?>
@@ -109,10 +133,8 @@ function woocommerce_custom_booking_product_fields() {
     <?php if ($custom_booking_data['_checkbox'] == 'yes') { ?>
     <div class="card">
         <div class="card-header" id="headingThree">
-            <h2 class="mb-0 collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                <button class="btn btn-link collapsed" type="button">
-                    <?php echo $i; ?>.- <?php _e('Transporte', 'woocommerce-custom-bookings'); ?> <span></span>
-                </button>
+            <h2 class="collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                <?php echo $i; ?>.- <?php _e('Transporte', 'woocommerce-custom-bookings'); ?> <span></span>
             </h2>
         </div>
         <?php $i++; ?>
@@ -130,10 +152,8 @@ function woocommerce_custom_booking_product_fields() {
     <?php } ?>
     <div class="card">
         <div class="card-header" id="headingFour">
-            <h2 class="mb-0 collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                <button class="btn btn-link collapsed" type="button">
-                    <?php echo $i; ?>.- <?php _e('Fechas Disponibles', 'woocommerce-custom-bookings'); ?> <span></span>
-                </button>
+            <h2 class="collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                <?php echo $i; ?>.- <?php _e('Fechas Disponibles', 'woocommerce-custom-bookings'); ?> <span></span>
             </h2>
         </div>
         <?php $i++; ?>
@@ -148,7 +168,7 @@ function woocommerce_custom_booking_product_fields() {
                     <?php } ?>
                 </select>
                 <?php } else { ?>
-                <input type="text" class="datepicker-special" name="_date_selection" data-language='es' />
+                <input type="text" class="datepicker-special" name="_date_selection" data-language='es' autocomplete="off" />
                 <span class="datepicker-quantity"></span>
                 <?php } ?>
             </div>
@@ -175,35 +195,39 @@ function woocommerce_custom_bookings_change_price_handler() {
     $_product = wc_get_product( $data['product_id'] );
     $new_price = $_product->get_price();
 
-    $custom_booking_data['_resident_adults_price'] = get_post_meta($data['product_id'], '_resident_adults_price', true);
-    $custom_booking_data['_resident_kids_price'] = get_post_meta($data['product_id'], '_resident_kids_price', true);
-    $custom_booking_data['_foreigner_adults_price'] = get_post_meta($data['product_id'], '_foreigner_adults_price', true);
-    $custom_booking_data['_foreigner_kids_price'] = get_post_meta($data['product_id'], '_foreigner_kids_price', true);
-    $custom_booking_data['_transport_price'] = get_post_meta($data['product_id'], '_transport_price', true);
+    $booking_type =  get_post_meta($data['product_id'], '_activate_booking', true);
+    if ($booking_type == 'yes') {
+        $new_price = 0;
+        $custom_booking_data['_resident_adults_price'] = get_post_meta($data['product_id'], '_resident_adults_price', true);
+        $custom_booking_data['_resident_kids_price'] = get_post_meta($data['product_id'], '_resident_kids_price', true);
+        $custom_booking_data['_foreigner_adults_price'] = get_post_meta($data['product_id'], '_foreigner_adults_price', true);
+        $custom_booking_data['_foreigner_kids_price'] = get_post_meta($data['product_id'], '_foreigner_kids_price', true);
+        $custom_booking_data['_transport_price'] = get_post_meta($data['product_id'], '_transport_price', true);
 
-    if ($data['_resident_adults'] > 0) {
-        $new_price = $new_price + ($custom_booking_data['_resident_adults_price'] * $data['_resident_adults']);
-    }
-
-    if ($data['_resident_kids'] > 0) {
-        $new_price = $new_price + ($custom_booking_data['_resident_kids_price'] * $data['_resident_kids']);
-    }
-
-    if ($data['_foreigner_adults'] > 0) {
-        $new_price = $new_price + ($custom_booking_data['_foreigner_adults_price'] * $data['_foreigner_adults']);
-    }
-
-    if ($data['_foreigner_kids'] > 0) {
-        $new_price = $new_price + ($custom_booking_data['_foreigner_kids_price'] * $data['_foreigner_kids']);
-    }
-
-    if (isset($data['_transport_checkbox'])) {
-        if ($data['_transport_checkbox'] == 'on') {
-            $new_price = $new_price + $custom_booking_data['_transport_price'];
+        if ($data['_resident_adults'] > 0) {
+            $new_price = $new_price + ($custom_booking_data['_resident_adults_price'] * $data['_resident_adults']);
         }
-    }
 
-    echo '+ ' . get_woocommerce_currency_symbol() . $new_price . ' adicional.';
+        if ($data['_resident_kids'] > 0) {
+            $new_price = $new_price + ($custom_booking_data['_resident_kids_price'] * $data['_resident_kids']);
+        }
+
+        if ($data['_foreigner_adults'] > 0) {
+            $new_price = $new_price + ($custom_booking_data['_foreigner_adults_price'] * $data['_foreigner_adults']);
+        }
+
+        if ($data['_foreigner_kids'] > 0) {
+            $new_price = $new_price + ($custom_booking_data['_foreigner_kids_price'] * $data['_foreigner_kids']);
+        }
+
+        if (isset($data['_transport_checkbox'])) {
+            if ($data['_transport_checkbox'] == 'on') {
+                $new_price = $new_price + $custom_booking_data['_transport_price'];
+            }
+        }
+
+        echo 'Subtotal: ' . get_woocommerce_currency_symbol() . $new_price;
+    }
 
     wp_die();
 }

@@ -1,8 +1,20 @@
+var attrButton = '';
 jQuery(document).on('ready', function (e) {
     jQuery('.datepicker-special').datepicker({
         multipleDates: 3,
         multipleDatesSeparator: ', ',
         position: 'top left'
+    });
+
+    jQuery('.card-header h2').on('click', function () {
+        jQuery('#bookingAccordion .card-header h2').each(function () {
+            jQuery(this).addClass('collapsed');
+            attrButton = jQuery(this).data('target');
+            jQuery(attrButton).removeClass('show');
+        });
+        jQuery(this).toggleClass('collapsed');
+        attrButton = jQuery(this).data('target');
+        jQuery(attrButton).toggleClass('show');
     });
 
     jQuery('#bookingAccordion input').on('change', function () {

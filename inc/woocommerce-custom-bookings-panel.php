@@ -25,7 +25,7 @@ function woocommerce_custom_bookings_tab_data() {
     echo '<div id="bookings_tab_data" class="panel woocommerce_options_panel hidden">';
     echo '<div class="options_group">';
 ?>
-<h2><?php _e( 'Transporte', 'woocommerce-custom-bookings' ); ?></h2>
+<h2><?php _e( 'Activar Producto', 'woocommerce-custom-bookings' ); ?></h2>
 <?php
     // Checkbox
     woocommerce_wp_checkbox(
