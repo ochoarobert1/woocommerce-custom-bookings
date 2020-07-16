@@ -234,3 +234,19 @@ function woocommerce_custom_bookings_change_price_handler() {
 
 add_action('wp_ajax_woocommerce_custom_bookings_change_price', 'woocommerce_custom_bookings_change_price_handler');
 add_action('wp_ajax_nopriv_woocommerce_custom_bookings_change_price', 'woocommerce_custom_bookings_change_price_handler');
+
+/* --------------------------------------------------------------
+    ADD BODY CLASS ON PRODUCT SPECIAL
+-------------------------------------------------------------- */
+
+add_filter( 'body_class', 'woocommerce_custom_bookings_body_classes' );
+function woocommerce_custom_bookings_body_classes( $classes ) {
+    if(is_product()){
+        global $post;
+        $booking_type =  get_post_meta($post->ID, '_activate_booking', true);
+        if ($booking_type == 'yes') {
+            $classes[] = 'product-booking-single';
+        }
+        return $classes;
+    }
+}
